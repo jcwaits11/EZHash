@@ -3,7 +3,7 @@ import tkinter as tk  # GUI library for building a desktop app
 from tkinter import (
     filedialog,
     messagebox
-) # File picker and pop-up messages
+)
 from datetime import datetime  # For UTC timestamping of hash logs
 from pathlib import Path  # Secure and clean file path handling
 
@@ -114,13 +114,13 @@ def launch_gui():
     tk.Entry(root, textvariable=file_path_var, width=50).pack()
     tk.Button(root, text="Browse", command=choose_file).pack()
     tk.Button(root, text="Compute Hashes", command=run_hash).pack(pady=10)
+
     tk.Label(
         root,
         textvariable=result_var,
         wraplength=500,
         justify="left"
     ).pack(pady=5)
-
 
     root.mainloop()
 
