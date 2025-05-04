@@ -1,4 +1,3 @@
-import pytest
 from pathlib import Path
 from app import is_valid_file, compute_all_hashes
 
