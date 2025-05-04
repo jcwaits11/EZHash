@@ -1,0 +1,9 @@
+# runtime
+tk
+
+# CI/CD tools
+flake8
+black
+bandit
+pip-audit
+pytest
