@@ -1,4 +1,5 @@
-import hashlib  # Cryptography library used for MD5, SHA-256, and SHA-512 hashing
+# Cryptography library used for MD5, SHA-256, and SHA-512 hashing
+import hashlib
 import tkinter as tk  # GUI library for building a desktop app
 from tkinter import filedialog, messagebox
 from datetime import datetime  # For UTC timestamping of hash logs
@@ -83,7 +84,9 @@ def launch_gui():
             messagebox.showerror("Error", "Selected file does not exist.")
             return
         if not is_valid_file(path):
-            messagebox.showerror("Error", f"File type '{path.suffix}' is not allowed.")
+            messagebox.showerror(
+                "Error", f"File type '{path.suffix}' is not allowed."
+            )
             return
 
         hashes = compute_all_hashes(path)
@@ -112,7 +115,12 @@ def launch_gui():
     tk.Button(root, text="Browse", command=choose_file).pack()
     tk.Button(root, text="Compute Hashes", command=run_hash).pack(pady=10)
 
-    tk.Label(root, textvariable=result_var, wraplength=500, justify="left").pack(pady=5)
+    tk.Label(
+        root,
+        textvariable=result_var,
+        wraplength=500,
+        justify="left"
+    ).pack(pady=5)
 
     root.mainloop()
 
