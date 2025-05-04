@@ -7,32 +7,58 @@ from pathlib import Path  # Secure and clean file path handling
 # File Extension Whitelisting and Blacklisting
 # Blocked file types
 BLOCKED_EXTENSIONS = {
-    '.exe', '.bat', '.cmd', '.sh', '.vbs', '.js', '.msi', '.dll', '.scr'
+    ".exe",
+    ".bat",
+    ".cmd",
+    ".sh",
+    ".vbs",
+    ".js",
+    ".msi",
+    ".dll",
+    ".scr",
 }
 
 # Allowed file types
 ALLOWED_EXTENSIONS = {
-    '.txt', '.pdf', '.jpg', '.jpeg', '.png', '.csv', '.xlsx', '.xls',
-    '.docx', '.doc', '.mp3', '.mp4', '.zip', '.rar', '.json', '.xml', '.log'
+    ".txt",
+    ".pdf",
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".csv",
+    ".xlsx",
+    ".xls",
+    ".docx",
+    ".doc",
+    ".mp3",
+    ".mp4",
+    ".zip",
+    ".rar",
+    ".json",
+    ".xml",
+    ".log",
 }
+
 
 # Validate if file extension is allowed and safe
 def is_valid_file(path):
     suffix = path.suffix.lower()
     return suffix in ALLOWED_EXTENSIONS and suffix not in BLOCKED_EXTENSIONS
 
+
 # Compute MD5, SHA-256, and SHA-512 hashes for a file
 def compute_all_hashes(file_path):
     try:
-        with open(file_path, 'rb') as f:
+        with open(file_path, "rb") as f:
             content = f.read()
         return {
-            'MD5': hashlib.md5(content).hexdigest(),
-            'SHA-256': hashlib.sha256(content).hexdigest(),
-            'SHA-512': hashlib.sha512(content).hexdigest()
+            "MD5": hashlib.md5(content).hexdigest(),
+            "SHA-256": hashlib.sha256(content).hexdigest(),
+            "SHA-512": hashlib.sha512(content).hexdigest(),
         }
     except Exception as e:
         return {"Error": str(e)}
+
 
 # Log hash results to a local file with timestamp
 def log_hashes(filename, hashes):
@@ -40,6 +66,7 @@ def log_hashes(filename, hashes):
     with open("hash_log.txt", "a") as log:
         for algo, value in hashes.items():
             log.write(f"{timestamp} - {filename} - {algo} - {value}\n")
+
 
 # Launch GUI Application
 def launch_gui():
@@ -87,6 +114,7 @@ def launch_gui():
     tk.Label(root, textvariable=result_var, wraplength=500, justify="left").pack(pady=5)
 
     root.mainloop()
+
 
 # === Run the GUI ===
 launch_gui()
