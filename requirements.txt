@@ -1,9 +1,10 @@
-# runtime
+# Runtime dependency for GUI
 tk
 
-# CI/CD tools
+# DevSecOps tools
 flake8
 black
 bandit
 pip-audit
 pytest
+setuptools==65.5.1  # Fixes PYSEC-2022-43012
