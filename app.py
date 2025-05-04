@@ -53,7 +53,7 @@ def compute_all_hashes(file_path):
         with open(file_path, "rb") as f:
             content = f.read()
         return {
-            "MD5": hashlib.md5(content).hexdigest(), # nosec B324
+            "MD5": hashlib.md5(content).hexdigest(),  # nosec B324
             "SHA-256": hashlib.sha256(content).hexdigest(),
             "SHA-512": hashlib.sha512(content).hexdigest(),
         }
